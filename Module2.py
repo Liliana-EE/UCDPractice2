@@ -275,3 +275,8 @@ np_baseball = np.array(baseball)
 
 # Print out type of np_baseball
 print(np_baseball)
+
+import pandas as pd
+
+data=pd.read_csv("Productlevel_Sales_Transactions_Dataset_Weekly.csv")
+print(data)
