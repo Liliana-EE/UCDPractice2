@@ -156,7 +156,7 @@ areas_2 = areas_1 + ["garage", 15.45]
 print(areas_2)
 
 # Remove poolhouse and its area from areas_2
-del(areas_2[-4:-2])
+del (areas_2[-4:-2])
 print(areas_2)
 
 # Create list areas_3
@@ -189,7 +189,7 @@ first = [11.25, 18.0, 20.0]
 second = [10.75, 9.50]
 
 # Paste together first and second: full
-full = sorted(first+second)
+full = sorted(first + second)
 
 # Sort full in descending order: full_sorted
 full_sorted = sorted(full, reverse=True)
@@ -278,7 +278,7 @@ print(np_baseball)
 
 import pandas as pd
 
-data=pd.read_csv("Productlevel_Sales_Transactions_Dataset_Weekly.csv")
+data = pd.read_csv("Productlevel_Sales_Transactions_Dataset_Weekly.csv")
 print(data)
 
 # height is available as a regular list
@@ -345,7 +345,7 @@ np_weight_lb = np.array(weight_lb)
 np_height_in = np.array(height_in)
 
 # Print out the weight at index 50
-print(np_weight_lb [50])
+print(np_weight_lb[50])
 
 # Print out sub-array of np_height_in: index 100 up to and including index 110
 print(np_height_in[100:111])
@@ -362,7 +362,6 @@ import numpy as np
 # Create a 2D numpy array from baseball: np_baseball
 np_baseball = np.array(baseball)
 
-
 # Print out the type of np_baseball
 print(type(np_baseball))
 
@@ -378,13 +377,23 @@ import numpy as np
 np_baseball = np.array(baseball)
 
 # Print out the 50th row of np_baseball
-print(np_baseball[49,:])
+print(np_baseball[49, :])
 
 # Select the entire second column of np_baseball: np_weight_lb
-np_weight_lb = np_baseball[:,1]
+np_weight_lb = np_baseball[:, 1]
 
 # Print out height of 124th player
-print(np_baseball[123,:])
+print(np_baseball[123, :])
+
+# calculate/ perform calculations combining matrices with single numbers, vectors, & other matrices
+import numpy as np
+
+np_mat = np.array([[1, 2],
+                   [3, 4],
+                   [5, 6]])
+np_mat * 2
+np_mat + np.array([10, 10])
+np_mat + np_mat
 
 # baseball is available as a regular list of lists
 # updated is available as 2D numpy array
@@ -399,7 +408,67 @@ np_baseball = np.array(baseball)
 print(np_baseball + updated)
 
 # Create numpy array: conversion
-conversion = np.array(0.0254) ,np.array(0.453592), np.array(1)
+conversion = np.array(0.0254), np.array(0.453592), np.array(1)
 
 # Print out product of np_baseball and conversion
 print(np_baseball * conversion)
+
+# Average versus median
+
+# np_baseball is available
+
+# Import numpy
+import numpy as np
+
+# Create np_height_in from np_baseball
+np_height_in = np.array(np_baseball[:,0])
+
+# Print out the mean of np_height_in
+print(np.mean(np_height_in))
+
+# Print out the median of np_height_in
+print(np.median(np_height_in))
+
+# Baseball data is updated and available as 2D Numpy np_baseball, with three columns now, to correct code work
+
+# np_baseball is available
+
+# Import numpy
+import numpy as np
+
+# Print mean height (first column) - code work ok
+avg = np.mean(np_baseball[:,0])
+print("Average: " + str(avg))
+
+# Print median height. Replace 'None' - before: med = None
+med = np.median(np_baseball[:,0])
+print("Median: " + str(med))
+
+# Print out the standard deviation on height. Replace 'None' - before: stddev = None
+stddev = np.std(np_baseball[:,0])
+print("Standard Deviation: " + str(stddev))
+
+# Print out correlation between first and second column. Replace 'None' - before: corr = None
+corr = np.corrcoef(np_baseball[:,0], np_baseball[:,1])
+print("Correlation: " + str(corr))
+
+# heights and positions are available as lists
+
+# Import numpy
+import numpy as np
+
+# Convert positions and heights to numpy arrays: np_positions, np_heights
+np_positions = np.array(positions)
+np_heights = np.array(heights)
+
+# Heights of the goalkeepers: gk_heights
+gk_heights = np_heights[np_positions == 'GK']
+
+# Heights of the other players: other_heights
+other_heights = np_heights [np_positions != 'GK']
+
+# Print out the median height of goalkeepers. Replace 'None'
+print("Median height of goalkeepers: " + str(np.median(gk_heights)))
+
+# Print out the median height of other players. Replace 'None'
+print("Median height of other players: " + str(np.median(other_heights)))
