@@ -65,6 +65,20 @@ plt.scatter(gdp_cap, life_exp)
 # Put the x-axis on a logarithmic scale
 plt.xscale('log')
 
+
+# Specify c and alpha inside plt.scatter()
+plt.scatter(alpha = 0.8, x = gdp_cap, y = life_exp, s = np.array(pop) * 2, c = col)
+
+# Previous customizations
+plt.xscale('log')
+plt.xlabel('GDP per Capita [in USD]')
+plt.ylabel('Life Expectancy [in years]')
+plt.title('World Development in 2007')
+plt.xticks([1000,10000,100000], ['1k','10k','100k'])
+
+# Show the plot
+plt.show()
+
 # Show plot
 plt.show()
 
@@ -173,3 +187,30 @@ plt.xticks([1000, 10000, 100000],['1k', '10k', '100k'])
 
 # Display the plot
 plt.show()
+
+#Dictionaries
+
+my_dict = {
+   "key1":"value1",
+   "key2":"value2",
+}
+
+# Definition of countries and capital
+countries = ['spain', 'france', 'germany', 'norway']
+capitals = ['madrid', 'paris', 'berlin', 'oslo']
+
+# Get index of 'germany': ind_ger
+ind_ger = countries.index('germany')
+
+# Use ind_ger to print out capital of Germany
+print(capitals[ind_ger])
+
+# Definition of countries and capital
+countries = ['spain', 'france', 'germany', 'norway']
+capitals = ['madrid', 'paris', 'berlin', 'oslo']
+
+# From string in countries and capitals, create dictionary europe
+europe = { 'spain':'madrid', 'france':'paris', 'germany':'berlin', 'norway':'oslo'}
+
+# Print europe
+print(europe)
