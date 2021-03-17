@@ -32,9 +32,6 @@ plt.plot(year, pop)
 print(year[-1])
 print(pop[-1])
 
-# Import matplotlib.pyplot as plt
-import matplotlib.pyplot as plt
-
 # Make a line plot: year on the x-axis, pop on the y-axis
 plt.plot(year, pop)
 
@@ -42,6 +39,15 @@ plt.plot(year, pop)
 plt.show()
 
 # According to previous plot by 2060, there will be more than ten billion human beings on this planet
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+df =pd.read_csv('Gapminder.csv')
+
+# how to define life_exp and gd_cap?
+
 
 # Print the last item of gdp_cap and life_exp
 print(life_exp[-1])
@@ -76,3 +82,34 @@ plt.hist(life_exp, bins=10)
 
 # Display histogram
 plt.show()
+
+# Build histogram with 5 bins
+plt.hist(life_exp, bins=5)
+
+# Show and clean up plot
+plt.show()
+plt.clf()
+
+# Build histogram with 20 bins
+plt.hist(life_exp, bins=20)
+
+# Show and clean up again
+plt.show()
+plt.clf()
+
+# Display histogram
+plt.show()
+
+# Histogram of life_exp, 15 bins
+plt.hist(life_exp, bins=15)
+
+# Show and clear plot
+plt.show()
+plt.clf()
+
+# Histogram of life_exp1950, 15 bins
+plt.hist(life_exp1950, bins=15)
+
+# Show and clear plot again
+plt.show()
+plt.clf()
