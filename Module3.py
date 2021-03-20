@@ -327,10 +327,9 @@ europe = {'spain': 'madrid', 'france': 'paris', 'germany': 'berlin', 'norway': '
 print(europe)
 
 # Definition of dictionary
-europe = {'spain': 'madrid', 'france': 'paris', 'germany': 'berlin', 'norway': 'oslo'}
+europe = {'spain': 'madrid', 'france': 'paris', 'germany': 'berlin', 'norway': 'oslo', "italy": 'rome'}
 
 # Add italy to europe
-europe["italy"] = 'rome'
 
 # Print out italy in europe
 print('italy' in europe)
@@ -342,12 +341,10 @@ europe["poland"] = 'warsaw'
 print(europe)
 
 # Definition of dictionary
-europe = {'spain': 'madrid', 'france': 'paris', 'germany': 'bonn',
-          'norway': 'oslo', 'italy': 'rome', 'poland': 'warsaw',
-          'australia': 'vienna'}
+europe = {'spain': 'madrid', 'france': 'paris', 'germany': 'berlin', 'norway': 'oslo', 'italy': 'rome',
+          'poland': 'warsaw', 'australia': 'vienna'}
 
 # Update capital of germany
-europe['germany'] = 'berlin'
 
 # Remove australia
 del (europe['australia'])
@@ -386,7 +383,7 @@ my_dict = {
     'country': names,
     'drives_right': dr,
     'cars_per_cap': cpc
-            }
+}
 
 # Build a DataFrame cars from my_dict: cars
 cars = pd.DataFrame(my_dict)
@@ -412,3 +409,51 @@ cars.index = row_labels
 
 # Print cars again
 print(cars)
+
+# Import cars data
+import pandas as pd
+
+cars = pd.read_csv('cars.csv', index_col=0)
+
+# Print out country column as Pandas Series
+print(cars['country'])
+
+# Print out country column as Pandas DataFrame
+print(cars[['country']])
+
+# Print out DataFrame with country and drives_right columns
+print(cars[['country','drives_right']])
+
+# Import cars data
+#import pandas as pd
+#cars = pd.read_csv('cars.csv', index_col=0)
+
+# Print out first 3 observations
+print(cars[0:3])
+
+# Print out fourth, fifth and sixth observation
+print(cars[3:6])
+
+# Import cars data
+import pandas as pd
+cars = pd.read_csv('cars.csv', index_col = 0)
+
+# Print out observation for Japan
+print(cars.loc['JPN'])
+print(cars.iloc[2])
+
+# Print out observations for Australia and Egypt
+print(cars.loc[['AUS','EG']])
+
+# Import cars data
+import pandas as pd
+cars = pd.read_csv('cars.csv', index_col = 0)
+
+# Print out drives_right value of Morocco
+print(cars.loc[['MOR'], ['drives_right']])
+print(cars.iloc[[5],-1:])
+
+# Print sub-DataFrame
+print(cars.loc[['RU','MOR'],['country','drives_right']])
+print(cars.iloc[[4,5], [1,2]])
+
