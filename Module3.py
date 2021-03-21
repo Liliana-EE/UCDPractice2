@@ -700,4 +700,314 @@ house = [["hallway", 11.25],
 for room, area in house:
     print("the " + str(room) + " is " + str(area) + " sqm")
 
+#Loop over dictionary
 
+# Definition of dictionary
+europe = {'spain': 'madrid', 'france': 'paris', 'germany': 'berlin',
+          'norway': 'oslo', 'italy': 'rome', 'poland': 'warsaw', 'austria': 'vienna'}
+
+# Iterate over europe
+for key, value in europe.items():
+    print("the capital of " + key + " is " + str(value))
+
+# Import numpy as np
+import numpy as np
+
+# For loop over np_height
+for x in np_height:
+    print(str(x) + " inches")
+
+# For loop over np_baseball
+for x in np.nditer(np_baseball):
+    print(x)
+
+# Import cars data
+import pandas as pd
+cars = pd.read_csv('cars.csv', index_col = 0)
+
+# Iterate over rows of cars
+for lab, row in cars.iterrows() :
+    print(lab)
+    print(row)
+
+# Import cars data
+import pandas as pd
+cars = pd.read_csv('cars.csv', index_col = 0)
+
+# Adapt for loop
+for lab, row in cars.iterrows() :
+    print(lab + ': ' + str(row['cars_per_cap']) )
+
+#Add column
+
+# Import cars data
+import pandas as pd
+cars = pd.read_csv('cars.csv', index_col = 0)
+
+# Code for loop that adds COUNTRY column
+for lab, row in cars.iterrows() :
+    cars.loc[lab, 'COUNTRY'] = row['country'].upper()
+
+# Print cars
+print(cars)
+
+# Import cars data
+import pandas as pd
+cars = pd.read_csv('cars.csv', index_col = 0)
+
+# Use .apply(str.upper)
+cars["COUNTRY"]= cars['country'].apply(str.upper)
+print(cars)
+
+#Random float
+
+# Import numpy as np
+import numpy as np
+
+# Set the seed
+np.random.seed(123)
+
+# Generate and print random float
+print(np.random.rand())
+
+# Import numpy and set seed
+import numpy as np
+np.random.seed(123)
+
+# Use randint() to simulate a dice
+print(np.random.randint(1,7))
+
+# Use randint() again
+print(np.random.randint(1,7))
+
+# Numpy is imported, seed is set
+import numpy as np
+np.random.seed(123)
+
+# Starting step
+step = 50
+
+# Roll the dice
+dice = np.random.randint(1,7)
+
+# Finish the control construct
+if dice <= 2 :
+    step = step - 1
+elif dice <= 5 :
+    step = step + 1
+else :
+    step = step + np.random.randint(1,7)
+
+# Print out dice and step
+print(dice)
+print(step)
+
+#Random Walk
+
+# Numpy is imported, seed is set
+import numpy as np
+np.random.seed(123)
+
+# Initialize random_walk
+random_walk = [0]
+
+# Complete the 100
+for x in range(100) :
+    # Set step: last element in random_walk
+    step = random_walk [-1]
+
+    # Roll the dice
+    dice = np.random.randint(1,7)
+
+    # Determine next step
+    if dice <= 2:
+        step = step - 1
+    elif dice <= 5:
+        step = step + 1
+    else:
+        step = step + np.random.randint(1,7)
+
+    # append next_step to random_walk
+    random_walk.append(step)
+
+# Print random_walk
+print(random_walk)
+
+# Numpy is imported, seed is set
+import numpy as np
+np.random.seed(123)
+
+# Initialize random_walk
+random_walk = [0]
+
+for x in range(100) :
+    step = random_walk[-1]
+    dice = np.random.randint(1,7)
+
+    if dice <= 2:
+        # Replace below: use max to make sure step can't go below 0
+        step = max(0, step - 1)
+    elif dice <= 5:
+        step = step + 1
+    else:
+        step = step + np.random.randint(1,7)
+
+    random_walk.append(step)
+
+print(random_walk)
+
+#Visualise the walk
+
+# Numpy is imported, seed is set
+import numpy as np
+np.random.seed(123)
+
+# Initialization
+random_walk = [0]
+
+for x in range(100) :
+    step = random_walk[-1]
+    dice = np.random.randint(1,7)
+
+    if dice <= 2:
+        step = max(0, step - 1)
+    elif dice <= 5:
+        step = step + 1
+    else:
+        step = step + np.random.randint(1,7)
+
+    random_walk.append(step)
+
+# Import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+
+# Plot random_walk
+plt.plot(random_walk)
+
+# Show the plot
+plt.show()
+
+#Distribution
+
+# Numpy is imported; seed is set
+import numpy as np
+np.random.seed(123)
+
+# Initialize all_walks (don't change this line)
+all_walks = []
+
+# Simulate random walk 10 times
+for i in range(10) :
+
+    # Code from before
+    random_walk = [0]
+    for x in range(100) :
+        step = random_walk[-1]
+        dice = np.random.randint(1,7)
+
+        if dice <= 2:
+            step = max(0, step - 1)
+        elif dice <= 5:
+            step = step + 1
+        else:
+            step = step + np.random.randint(1,7)
+        random_walk.append(step)
+
+# Print all_walks
+print(all_walks)
+
+# numpy and matplotlib imported, seed set
+import numpy as np
+np.random.seed(123)
+
+# Simulate random walk 250 times
+all_walks = []
+for i in range(250) :
+    random_walk = [0]
+    for x in range(100) :
+        step = random_walk[-1]
+        dice = np.random.randint(1,7)
+        if dice <= 2:
+            step = max(0, step - 1)
+        elif dice <= 5:
+            step = step + 1
+        else:
+            step = step + np.random.randint(1,7)
+
+        # Implement clumsiness
+        if np.random.rand() <= 0.001 :
+            step = 0
+
+        random_walk.append(step)
+    all_walks.append(random_walk)
+
+# Create and plot np_aw_t
+np_aw_t = np.transpose(np.array(all_walks))
+plt.plot(np_aw_t)
+plt.show()
+
+# Implement clumsiness
+
+# numpy and matplotlib imported, seed set
+import numpy as np
+np.random.seed(123)
+
+# Simulate random walk 250 times
+all_walks = []
+for i in range(250) :
+    random_walk = [0]
+    for x in range(100) :
+        step = random_walk[-1]
+        dice = np.random.randint(1,7)
+        if dice <= 2:
+            step = max(0, step - 1)
+        elif dice <= 5:
+            step = step + 1
+        else:
+            step = step + np.random.randint(1,7)
+
+        # Implement clumsiness
+        if np.random.rand() <= 0.001 :
+            step = 0
+
+        random_walk.append(step)
+    all_walks.append(random_walk)
+
+# Create and plot np_aw_t
+np_aw_t = np.transpose(np.array(all_walks))
+plt.plot(np_aw_t)
+plt.show()
+
+# Plot the distribution
+
+# numpy and matplotlib imported, seed set
+import numpy as np
+np.random.seed(123)
+
+# Simulate random walk 500 times
+all_walks = []
+for i in range(500) :
+    random_walk = [0]
+    for x in range(100) :
+        step = random_walk[-1]
+        dice = np.random.randint(1,7)
+        if dice <= 2:
+            step = max(0, step - 1)
+        elif dice <= 5:
+            step = step + 1
+        else:
+            step = step + np.random.randint(1,7)
+        if np.random.rand() <= 0.001 :
+            step = 0
+        random_walk.append(step)
+    all_walks.append(random_walk)
+
+# Create and plot np_aw_t
+np_aw_t = np.transpose(np.array(all_walks))
+
+# Select last row from np_aw_t: ends
+ends = np_aw_t[-1, :]
+
+# Plot histogram of ends, display plot
+plt.hist(ends)
+plt.show()
